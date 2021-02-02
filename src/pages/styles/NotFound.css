@@ -1,0 +1,25 @@
+
+.NotFound {
+    width: 100%;
+    min-height: calc(100vh - 60px);
+    background: url('../../images/stars.svg'), #1B1B25;
+    background-repeat: repeat;
+  
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+  }
+
+  .NotFound col{
+
+  }
+
+.NotFound h1{
+    margin-left: 30px;
+}
+
+.imgRocket{
+
+    width: 83%;
+    /*transform: rotate(35deg);*/
+}

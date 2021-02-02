@@ -1,0 +1,30 @@
+.BadgeForm{
+    text-align: center !important;
+    align-content: center;
+    -webkit-align-content: center;
+    left: auto; 
+    bottom: 0;
+    margin-bottom: 20px;
+    width: 70%;
+}
+
+.titulo{
+    text-transform: uppercase;
+    /*color: white;*/
+    font-size: 28px;
+  
+}
+
+.formBadge{
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.10);
+    border-radius: 8px 8px 8px 8px;
+    padding: 20px;
+    text-align: left;
+    margin-left: 90px;
+}
+
+.anchoSubmit{
+    width: 100%;
+}
