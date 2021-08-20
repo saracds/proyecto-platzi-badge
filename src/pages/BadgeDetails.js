@@ -28,10 +28,10 @@ export default function BadgeDetails(props){
         <div className="BadgeDetails__hero">
             <div className="container">
                 <div className="row">
-                    <div className="col-6">
+                    <div className="col-12 col-sm-6">
                         <img src={confLogo} style={{width:'50%'}} alt="Logo de la Conferencia" />
                     </div>
-                    <div className="col-6 BadgeDetails__hero-attendant-name">
+                    <div className="col-12 col-sm-6 BadgeDetails__hero-attendant-name">
                         <h1>
                             {badge.firstName} {badge.lastName}
                         </h1>
@@ -42,7 +42,7 @@ export default function BadgeDetails(props){
 
         <div className="container">
             <div className="row">
-                <div className="col-6">
+                <div className="col-12 col-sm-6">
                     <div className="container">
                         <Badge
                             firstName={badge.firstName}
@@ -53,7 +53,7 @@ export default function BadgeDetails(props){
                         />
                     </div>
                 </div>
-                <div className="col-6 BadgeDetails__actions">
+                <div className="col-12 col-sm-6 BadgeDetails__actions">
                     <h2>Actions</h2>
                     <div className=" BadgeDetails__buttons">
                         <div>

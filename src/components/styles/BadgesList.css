@@ -1,3 +1,7 @@
+.BadgesList{
+  margin-bottom: 1rem;
+}
+
 .BadgesList ul>li {
   margin-bottom: 1rem;
 }
@@ -6,8 +10,10 @@
   background: #FFFFFF;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.23);
   border-radius: 5px;
+  box-sizing: border-box;
   display: flex;
   padding: 1rem;
+  font-size: 14px;
 }
 
 .BadgesListItem__avatar {
@@ -20,5 +26,50 @@
 
 
 .twitter{
-  color: #00a2f3
+  color: #00a2f3;
+  font-size: 14px;
+}
+
+/* Paginacion */
+
+.paginationBttns{
+  width: 100%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: .6rem auto;
+  padding: 0;
+}
+
+.paginationBttns li{
+  display: inline-block;
+  margin: .3rem;
+  line-height: 30px;
+}
+
+.paginationBttns a{
+  padding: 10px;
+  margin: 0.3rem;
+  border-radius: 5px;
+  border: 1px solid #c9ffa0;
+  color :  black;
+}
+
+.paginationBttns a:hover{
+  color :  white;
+  background-color: #7DCD40;
+}
+
+.paginationActive a{
+  color :  white;
+  background-color:#7DCD40;
+}
+
+@media (min-width: 768px) {
+  .BadgesListItem,
+  .twitter{
+    font-size: 16px;
+  }
 }

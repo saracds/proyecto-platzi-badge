@@ -22,18 +22,18 @@ class BadgeEdit extends React.Component {
 
     componentDidMount() {
         this.fetchData();
-      }
-    
-      fetchData = async e => {
+    }
+
+    fetchData = async e => {
         this.setState({ loading: true, error: null });
-    
+
         try {
-          const data = await api.badges.read(this.props.match.params.badgeId); //Leer el id del badge a editar
-          this.setState({ loading: false, form: data });
+            const data = await api.badges.read(this.props.match.params.badgeId); //Leer el id del badge a editar
+            this.setState({ loading: false, form: data });
         } catch (error) {
-          this.setState({ loading: false, error: error });
+            this.setState({ loading: false, error: error });
         }
-      };
+    };
 
     handleChange = e => {
         this.setState({
@@ -48,7 +48,7 @@ class BadgeEdit extends React.Component {
         e.preventDefault();
         this.setState({ loading: true, error: null })
         try {
-            await api.badges.update(this.props.match.params.badgeId,this.state.form)
+            await api.badges.update(this.props.match.params.badgeId, this.state.form)
             this.setState({ loading: false })
             this.props.history.push('/badges');
         } catch (error) {
@@ -69,7 +69,7 @@ class BadgeEdit extends React.Component {
                 </div>
                 <div className="container">
                     <div className="row">
-                        <div className="col-6">
+                        <div className="col-12 col-sm-6">
                             <Badge
                                 firstName={this.state.form.firstName || 'FirstName'}
                                 lastName={this.state.form.lastName || 'LastName'}
@@ -79,7 +79,7 @@ class BadgeEdit extends React.Component {
                                 twitter={this.state.form.twitter || 'Twitter'}
                             />
                         </div>
-                        <div className="col-6">
+                        <div className="col-12 col-sm-6">
                             <h1>Edit Attendant</h1>
                             <BadgeForm
                                 onChange={this.handleChange}
@@ -95,4 +95,4 @@ class BadgeEdit extends React.Component {
     }
 }
 
-    export default BadgeEdit;
+export default BadgeEdit;

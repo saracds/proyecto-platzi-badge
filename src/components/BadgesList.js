@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Gravatar from './Gravatar';
+import ReactPaginate from 'react-paginate';
 
 import './styles/BadgesList.css';
 
@@ -27,6 +28,8 @@ class BadgesListItem extends React.Component {
   }
 }
 
+// Badge List
+
 function useSearchBadges(badges) {
   const [query, setQuery] = React.useState('');
   const [filteredBadges, setFilteredBadges] = React.useState(badges);
@@ -47,8 +50,24 @@ function useSearchBadges(badges) {
 function BadgesList(props) {
 
   const badges = props.badges;
-
   const { query, setQuery, filteredBadges } = useSearchBadges(badges);
+
+  const [pageNumber, setPageNumber] = useState(0);
+  const badgePerPage = 10;
+  const pagesVisited = pageNumber * badgePerPage;
+
+  // Obtener datos actuales
+  const currentBadge = (!query) ? filteredBadges.slice(pagesVisited, pagesVisited + badgePerPage) : filteredBadges;
+
+  // Cantidad de páginas
+  const pageCount = Math.ceil(badges.length / badgePerPage);
+
+  // Cambiar de página
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
+
+
 
   if (filteredBadges.length === 0) {
     return (
@@ -79,7 +98,7 @@ function BadgesList(props) {
           }} />
       </div>
       <ul className="list-unstyled">
-        {filteredBadges.map(badge => {
+        {currentBadge.map(badge => {
           return (
             <li key={badge.id}>
               <Link className="text-reset text-decoration-none" to={`/badges/${badge.id}`}>
@@ -89,6 +108,18 @@ function BadgesList(props) {
           );
         })}
       </ul>
+
+      <ReactPaginate
+        previousLabel={'⟨'}
+        nextLabel={'⟩'}
+        pageCount={pageCount}
+        onPageChange={changePage}
+        containerClassName={'paginationBttns'}
+        previousClassName={'previousBttns'}
+        nextLinkClassName={'nextBttns'}
+        disabledClassName={'paginationDisabled'}
+        activeClassName={'paginationActive'}
+      />
     </div>
   );
 
